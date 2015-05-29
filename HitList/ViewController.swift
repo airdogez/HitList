@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource{
     @IBAction func addName(sender: AnyObject) {
         var alert = UIAlertController(title: "New name", message: "Add a new name", preferredStyle: .Alert)
         let saveAction = UIAlertAction(title: "Save", style: .Default, handler: {(action: UIAlertAction!) -> Void in
-            let textField = alert.textFields![0] as UITextField
+            let textField = alert.textFields![0] as! UITextField
             //self.names.append(textField.text)
             self.saveName(textField.text)
             self.tableView.reloadData()
@@ -49,15 +49,15 @@ class ViewController: UIViewController, UITableViewDataSource{
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell!
         //cell.textLabel.text = names[indexPath.row]
         let person = people[indexPath.row]
-        cell.textLabel.text = person.valueForKey("name") as String?
+        cell.textLabel!.text = person.valueForKey("name") as! String?
         return cell
     }
     
     func saveName(name: String){
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate!
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate!
         let managedContext = appDelegate.managedObjectContext!
         let entity = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedContext)
         let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
@@ -70,11 +70,11 @@ class ViewController: UIViewController, UITableViewDataSource{
     }
     
     func restoreFromStore(){
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate!
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate!
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "Person")
         var error: NSError?
-        let fetchResult = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
+        let fetchResult = managedContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]!
         if let results = fetchResult{
             people = results
         }
