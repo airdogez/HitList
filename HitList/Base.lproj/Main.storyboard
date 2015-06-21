@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rRy-FV-Avz">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-p4-eu8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="VX7-z1-Eqb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TOZ-p4-eu8" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="MQd-ZY-qBK"/>
+                            <constraint firstItem="TOZ-p4-eu8" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="TOU-AO-d8H"/>
+                            <constraint firstAttribute="trailing" secondItem="TOZ-p4-eu8" secondAttribute="trailing" id="jGs-up-Vv3"/>
+                            <constraint firstItem="TOZ-p4-eu8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="zqi-I9-fKk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="TOZ-p4-eu8"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="MQd-ZY-qBK"/>
+                                <exclude reference="TOU-AO-d8H"/>
+                                <exclude reference="jGs-up-Vv3"/>
+                                <exclude reference="zqi-I9-fKk"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="TOZ-p4-eu8"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="MQd-ZY-qBK"/>
+                                <include reference="TOU-AO-d8H"/>
+                                <include reference="jGs-up-Vv3"/>
+                                <include reference="zqi-I9-fKk"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="hGF-68-jIB">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="rdP-V6-5Fn">
+                            <connections>
+                                <action selector="addName:" destination="vXZ-lx-hvc" id="fVN-wk-m2x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="TOZ-p4-eu8" id="hw9-KF-FVx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1087.5" y="570"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q9Q-R4-QrR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rRy-FV-Avz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GsT-VZ-BbK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="XGR-Wd-Seg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7pn-e7-c9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234" y="570"/>
+        </scene>
+    </scenes>
+</document>
